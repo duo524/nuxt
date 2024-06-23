@@ -26,11 +26,11 @@ services:
     ports:
       - "3004:3000"
     environment:
-      DATABASE_URL: mysql://root:renjinduo@mysql_db_container:3306/test
+      DATABASE_URL: mysql://root:renjinduo@mysql_db_container:3306/User
       # NUXT_BASE_URL: https://jsonplaceholder.typicode.com
       # JSON_SECRET: thisisjsonsecret
     command: >
-      /bin/sh -c 'npm run migrate && npm run build && npm start'
+      /bin/sh -c 'npm start'
     depends_on:
       mysql_db_container:
         condition: service_healthy

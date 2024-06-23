@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "migrate": "npx prisma migrate deploy --schema server/database/schema.prisma",
-    "start": "nuxt start",
+    "migrate": "prisma generate --schema=./server/database/schema.prisma && npx prisma migrate deploy --schema=./server/database/schema.prisma",
+    "start": "npm run migrate && npm run build && nuxt start",
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "npm run migrate && nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
